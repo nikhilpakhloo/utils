@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { useState } from 'react';
+import './App.css';
+import Main from './componants/Main';
+
+import Navbar from './componants/Navbar';
+
+function App(props) {
+
+  const [darkmode, setdarkmode] = useState("light")
+  const toggleMode = () => {
+    if (darkmode === 'light') {
+      setdarkmode("dark")
+      document.body.style.backgroundColor = "black"
+      document.body.style.color = "white"
+
+    } else {
+      setdarkmode("light")
+      document.body.style.backgroundColor = "white"
+      document.body.style.color = "black"
+
+
+
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="app">
+      <Navbar title="TextUtils" home="set this navbar using props" mode="Reactjs" effect="Learn" bg={darkmode} togglemode={toggleMode} />
+      <Main />
     </div>
+
+
   );
 }
 
