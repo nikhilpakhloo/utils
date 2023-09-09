@@ -30,11 +30,12 @@ export default function Main(props) {
 
 
 
+
     return (
         <>
             <div className="mb-3 container">
                 <label for="exampleFormControlTextarea1" className="form-label my-3"><h3>Enter your Text here...</h3></label>
-                <textarea className="form-control " id="exampleFormControlTextarea1" rows="10" value={text} onChange={handleInput}></textarea>
+                <textarea className={`form-control bg-${props.bg==="light"?"light":"dark"}  text-${props.bg=="light"?"dark":"light"}`} id="exampleFormControlTextarea1" rows="10" value={text} onChange={handleInput}></textarea>
                 <button className="btn btn-primary m-2" onClick={toUpperCase}>toUppercase</button>
                 <button className="btn btn-primary m-2" onClick={toLowerCase}>toLowercase</button>
                 <button className="btn btn-primary m-2" onClick={toclear}>Clear</button>
